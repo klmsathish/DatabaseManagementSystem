@@ -1,0 +1,10 @@
+create database LibraryManagement;
+use LibraryManagement;
+create table Library(lib_Name varchar(50) primary key not null unique , no_of_branches int not null);
+describe library;
+create table copies(Copy_price int not null ,Copy_number int primary key unique,Location varchar(50) not null, Check(Copy_number > 1),check (Copy_price >100));
+create database sch;
+use sch;
+create table cour(course_code int primary key, course_title char(50) not null unique, credit int ,check(credit >= 1 and credit<= 10));
+insert into cour values(01,"AI",5);
+insert into cour values(02,"CS",9);

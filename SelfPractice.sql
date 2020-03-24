@@ -1,0 +1,44 @@
+create database practice;
+use practice;
+create table country(country_id int not null unique, country_name varchar(25)  not null,region_id int not null unique,primary key(country_id,country_name),check (region_id>10));
+create table city(city_id int primary key, city_name varchar(50),country_no int,coun_name varchar(25),foreign key(country_no,coun_name) references country(country_id,country_name))	;
+select * from city;
+describe city;
+drop table city;
+set foreign_key_checks =0;
+drop table country;
+set foreign_key_checks =1;
+insert into  country values(1,"sat",55);
+insert into  country values(2,"sat",45);
+insert into  country values(5,"sat",89);
+insert into  country values(7,"sat",56);
+update country 
+set country_name = "raf" where country_id = 2;
+select * from country;
+create database me; 
+create table us (us_name varchar(50) not null ,us_id int unique,aadhar_no int,primary key(us_id,aadhar_no),check(aadhar_no>15));
+create table you(you_name varchar(50) not null,you_address varchar(100),us_id int,aadhar_id int,foreign key(us_id,aadhar_id) references us(us_id,aadhar_no) );
+insert into us values("sat",45,12345);
+insert into us values("arj",23,151);
+insert into us values("fgds",20,145);
+set foreign_key_checks =0;
+drop table us;
+set foreign_key_checks = 1;
+update us
+set us_name = "arjun" where aadhar_no = 151;
+select * from us;
+delete from us;
+create database e;
+use e;
+create table n( namee varchar(20) primary key ,age int,check(Age>10) ,numb int,foreign key(numb) references m(numbe));
+create table m (numbe int primary key, address varchar(50));
+set foreign_key_checks = 0;
+drop table n;
+set foreign_key_checks = 1;
+select * from n;
+insert into n values("sat",45,12);
+insert into n values("s",41,2);
+insert into n values("st",32,1);
+update n
+set namee = "arh" where  (age<10);
+delete from n;
